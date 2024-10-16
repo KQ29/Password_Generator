@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #F0FFFF, #FFCCBC, #FFAB91, #F48FB1, #F0FFFF);
+    background-size: 400% 400%;
+    animation: infiniteColorChange 10s ease infinite;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@keyframes infiniteColorChange {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    width: 450px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.container:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.container h2 {
+    font-weight: 600;
+    font-size: 1.4rem;
+    padding: 1.25rem 2rem;
+    background: #f8f9fa;
+    border-bottom: 1px solid #d4dbe5;
+    color: #333;
+    text-align: center;
+}
+
+.wrapper {
+    margin: 1.5rem 2rem;
+}
+
+.wrapper .input-box {
+    position: relative;
+}
+
+.input-box input {
+    width: 100%;
+    height: 53px;
+    color: #333;
+    background: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 10px;
+    letter-spacing: 1.4px;
+    border: 1px solid #ccc;
+    padding: 0 3rem 0 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-box input:focus {
+    border-color: #36a044;
+    box-shadow: 0 0 8px rgba(54, 160, 68, 0.2);
+}
+
+.input-box span {
+    position: absolute;
+    right: 13px;
+    cursor: pointer;
+    line-height: 53px;
+    color: #707070;
+    transition: color 0.3s ease;
+}
+
+.input-box span:hover {
+    color: #36a044;
+    transform: scale(1.1);
+}
+
+.wrapper .pass-indicator {
+    width: 100%;
+    height: 4px;
+    position: relative;
+    margin-top: 1rem;
+    border-radius: 25px;
+    background-color: #e0e0e0;
+}
+
+.pass-indicator::before {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 50%;
+    border-radius: inherit;
+    transition: width 0.3s ease;
+}
+
+.pass-indicator#very-weak::before {
+    width: 10%;
+    background: #e64a4a;
+}
+
+.pass-indicator#weak::before {
+    width: 20%;
+    background: #e67e22;
+}
+
+.pass-indicator#moderate::before {
+    width: 40%;
+    background: #f1c80b;
+}
+
+.pass-indicator#good::before {
+    width: 60%;
+    background: #f4b400;
+}
+
+.pass-indicator#strong::before {
+    width: 80%;
+    background: #43a047;
+}
+
+.pass-indicator#very-strong::before {
+    width: 100%;
+    background: #1e88e5;
+}
+
+.wrapper .pass-length {
+    margin: 1.5rem 0 1.25rem;
+}
+
+.pass-length .details {
+    display: flex;
+    justify-content: space-between;
+    color: #4f4f4f;
+}
+
+.pass-length input {
+    width: 100%;
+    height: 5px;
+    background: #f0f0f0;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.pass-settings .options {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.pass-settings .options .option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    width: calc(100% / 2);
+}
+
+.options .option:first-child {
+    pointer-events: none;
+}
+
+.options .option:first-child input {
+    opacity: 0.7;
+}
+
+.options .option input {
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+}
+
+.options .option label {
+    cursor: pointer;
+    color: #4f4f4f;
+    padding-left: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.wrapper .generate-btn {
+    width: 100%;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #43a047;
+    font-size: 1.1rem;
+    padding: 1rem 0;
+    border-radius: 5px;
+    text-transform: uppercase;
+    margin: 1rem 0 1.5rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.generate-btn:hover {
+    background-color: #36a044;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.password-history {
+    margin-top: 20px;
+}
+
+.password-history h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.password-history ul {
+    list-style: none;
+    padding-left: 0;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.password-history ul li {
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.password-history ul li:hover {
+    background-color: #e9e9e9;
+}
+
+.clear-history-btn {
+    width: 100%;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #ff9800; 
+    font-size: 1rem;
+    padding: 0.75rem 0;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.clear-history-btn:hover {
+    background: #ff9800;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+#error-message {
+    color: red;
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Dark Mode Toggle Button */
+.theme-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #43a047;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1000;
+}
+
+.theme-button:hover {
+    background-color: #36a044;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}

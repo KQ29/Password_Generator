@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Default light theme */
+:root {
+    --background-gradient: linear-gradient(45deg, #F0FFFF, #FFCCBC, #FFAB91, #F48FB1, #F0FFFF);
+    --text-color: #333333;
+    --input-background: #ffffff;
+    --input-border: #ccc;
+    --button-background: #43a047;
+    --button-text-color: #ffffff;
+    --error-color: red;
+    --indicator-background: #e0e0e0;
+    --indicator-fill: #43a047;
+    --checkbox-border: #aaa;
+}
+
+/* Dark theme */
+body.dark-mode {
+    --background-gradient: linear-gradient(to right, #007bff, #ff004f);
+    --text-color: #e0e0e0;
+    --input-background: #1e1e1e;
+    --input-border: #555555;
+    --button-background: #ff9800;
+    --button-text-color: #ffffff;
+    --error-color: #ff5252;
+    --indicator-background: #2a2a2a;
+    --indicator-fill: #ff9800;
+    --checkbox-border: #777777;
+}
+
+body.dark-mode {
+    background: var(--background-gradient);
+    color: var(--text-color);
+}
+
+/* Apply the variables */
+body {
+    background: var(--background-gradient);
+    color: var(--text-color);
+    background-size: 400% 400%;
+    animation: infiniteColorChange 10s ease infinite;
+}
+
+.container {
+    background-color: var(--input-background);
+    color: var(--text-color);
+}
+
+.wrapper .title,
+.wrapper .details label,
+.wrapper .options .option label {
+    color: var(--text-color);
+}
+
+.input-box input {
+    background-color: var(--input-background);
+    border: 1px solid var(--input-border);
+    color: var(--text-color);
+}
+
+.input-box span.material-symbols-rounded {
+    color: var(--text-color);
+}
+
+.input-box span.material-symbols-rounded:hover {
+    color: var(--button-background);
+}
+
+.generate-btn,
+.clear-history-btn {
+    background-color: var(--button-background);
+    color: var(--button-text-color);
+}
+
+.options .option input[type="checkbox"] {
+    accent-color: var(--button-background);
+}
+
+.pass-indicator {
+    background-color: var(--indicator-background);
+}
+
+.pass-indicator::before {
+    background: var(--indicator-fill);
+}
+
+#pass-strength {
+    color: var(--text-color);
+}
+
+#error-message {
+    color: var(--error-color);
+}
+
+/* Position the theme switch */
+.theme-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Hide the label text */
+.theme-switch label[for="theme-toggle"] {
+    display: none;
+}
+
+/* Styles for the theme switch */
+.theme-switch .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.theme-switch .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.theme-switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--input-border);
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.theme-switch .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--button-text-color);
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+.theme-switch input:checked + .slider {
+    background-color: var(--button-background);
+}
+
+.theme-switch input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.theme-switch input:checked + .slider::after {
+    content: "☀️";
+    left: 10px;
+    right: auto;
+}
+
+/* Adjustments for the dark mode */
+body.dark-mode .input-box input {
+    color: #ffffff; /* White text */
+}
+
+body.dark-mode .input-box input::placeholder {
+    color: #bbbbbb; /* Lighter placeholder text */
+}
+
+body.dark-mode h3 {
+    color: #007bff;
+}
+
+body.dark-mode #history-list {
+    background-color: #1e1e1e; /* Dark background for the list container */
+    color: #e0e0e0; /* Light text color for better visibility */
+}
+
+body.dark-mode #history-list li {
+    background-color: #2a2a2a; /* Darker background for each list item */
+    color: #ffffff; /* Bright white color for the list items text */
+    border-bottom: 1px solid #555555; /* Subtle border to separate list items */
+}
+
+/* Default light mode button with animated gradient */
+#theme-toggle-btn {
+    background: linear-gradient(45deg, #43a047, #66bb6a, #29b6f6, #ab47bc, #ff7043, #ffd54f);
+    background-size: 300% 300%;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    animation: gradientAnimation 5s ease infinite;
+}
+
+/* Dark mode button with animated gradient */
+body.dark-mode #theme-toggle-btn {
+    background: linear-gradient(45deg, #ff9800, #ff7043, #ab47bc, #29b6f6, #66bb6a, #43a047);
+    background-size: 300% 300%;
+    color: white;
+    animation: gradientAnimation 5s ease infinite;
+}
+
+/* Keyframes for moving gradient */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
